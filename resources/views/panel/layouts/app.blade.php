@@ -55,7 +55,7 @@
 
             <div class="dropdown user-dash">
                 <div class="dropdown-toggle" id="dropDownCuston" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img src="{{url('assets/imgs/user-carlos-ferreira.png')}}" alt="Carlos Ferreira" class="user-dashboard img-circle">
+                    <img src="{{url('assets/panel/imgs/user-carlos-ferreira.png')}}" alt="Carlos Ferreira" class="user-dashboard img-circle">
                     <p class="user-name">Nome User</p>
                     <span class="caret"></span>
                 </div>
@@ -75,7 +75,7 @@
     </section><!--End Content-->
 
     <!--jQuery-->
-    <script src="{{url('assets/js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{url('assets/panel/js/jquery-3.1.1.min.js')}}"></script>
 
     <!-- jS Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
