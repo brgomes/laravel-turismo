@@ -26,7 +26,7 @@
         <div class="list-menu">
             <ul class="menu-list">
                 <li>
-                    <a href="{{url('/panel')}}">
+                    <a href="{{route('panel')}}">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         Home
                     </a>

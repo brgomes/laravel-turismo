@@ -1,7 +1,7 @@
 <?php
 
 $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
-	$this->get('/', 'PanelController@index');
+	$this->get('/', 'PanelController@index')->name('panel');
 	$this->resource('brands', 'BrandController');
 });
 
