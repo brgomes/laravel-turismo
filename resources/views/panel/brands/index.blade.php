@@ -59,6 +59,10 @@
 		@endforelse
 	</table>
 
+	<p>
+		Total encontrado: <strong>{{$brands->total()}}</strong>
+	</p>
+
 	@if(isset($dataForm))
 		{!! $brands->appends($dataForm)->links() !!}
 	@else
