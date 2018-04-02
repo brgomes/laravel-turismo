@@ -131,4 +131,15 @@ class PlaneController extends Controller
         //
     }
 
+    public function search(Request $request)
+    {
+        $dataForm = $request->except('_token');
+
+        $planes = $this->_plane->search($request->key_search, $this->_totalPage);
+
+        $title = 'Aviões, filtros para ' . $request->key_search;
+
+        return view('panel.planes.index', compact('title', 'planes', 'dataForm'));
+    }
+
 }
