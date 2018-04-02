@@ -69,7 +69,15 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        $brand = $this->_brand->find($id);
+
+        if (!$brand) {
+            return redirect()->back();
+        }
+
+        $title = "Detalhes da marca: $brand->name";
+
+        return view('panel.brands.show', compact('title', 'brand'));
     }
 
     /**
@@ -123,7 +131,17 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = $this->_brand->find($id);
+
+        if (!$brand) {
+            return redirect()->back();
+        }
+
+        if ($brand->delete()) {
+            return redirect()->route('brands.index')->with('success', 'Deletado com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao deletar');
     }
 
     public function search(Request $request)
