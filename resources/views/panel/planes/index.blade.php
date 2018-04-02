@@ -40,17 +40,17 @@
 
 	<table class="table table-striped">
 		<tr>
-			<th>Nome</th>
 			<th>Marca</th>
 			<th>Total de passageiros</th>
+			<th>Classe</th>
 			<th width="150">Ações</th>
 		</tr>
 
 		@forelse($planes as $plane)
 			<tr>
-				<td>{{$plane->name}}</td>
 				<td>...</td>
-				<td>{{$plane->qty_passangers}}</td>
+				<td>{{$plane->qty_passengers}}</td>
+				<td>{{$plane->class}}</td>
 				<td>
 					<a href="{{route('planes.edit', $plane->id)}}" class="edit">Edit</a>
 					<a href="{{route('planes.show', $plane->id)}}" class="delete">View</a>
