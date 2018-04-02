@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Request;
 
 class BrandStoreUpdateFormRequest extends FormRequest
 {
@@ -23,8 +24,11 @@ class BrandStoreUpdateFormRequest extends FormRequest
      */
     public function rules()
     {
+        // /panel/brand/id (3º segmento)
+        $id = Request::segment(3);
+
         return [
-            'name' => 'required:min:3|max:100|unique:brands'
+            'name' => "required|min:3|max:100|unique:brands,name,{$id},id"
         ];
     }
 }
