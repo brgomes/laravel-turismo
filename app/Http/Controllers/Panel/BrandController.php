@@ -8,16 +8,24 @@ use App\Models\Brand;
 
 class BrandController extends Controller
 {
+
+    private $brand;
+
+    public function __construct(Brand $brand)
+    {
+        $this->brand = $brand;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Brand $brand)
+    public function index()
     {
         $title = 'Marcas de aviões';
 
-        $brands = $brand->all();
+        $brands = $this->brand->all();
 
         return view('panel.brands.index', compact('title', 'brands'));
     }
@@ -40,14 +48,12 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Brand $brand)
+    public function store(Request $request)
     {
         $dataForm = $request->all();
 
-        $insert = $brand->create($dataForm);
-
-        if ($insert) {
-            return redirect()->route('brands.index');
+        if ($this->brand->create($dataForm)) {
+            return redirect()->route('brands.index')->with('success', 'Cadastro realizado com sucesso');
         }
 
         return redirect()->back()->with('error', 'Falha ao cadastrar');
