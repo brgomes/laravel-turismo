@@ -28,21 +28,21 @@
 	@endif
 
 	@if(isset($brand))
-		<form class="form form-search form-ds" action="{{route('brands.update', $brand->id)}}" method="post">
-			{!! method_field('put') !!}
+		<!--<form class="form form-search form-ds" action="{{route('brands.update', $brand->id)}}" method="post">-->
+		{!! Form::model($brand, ['route' => ['brands.update', $brand->id], 'class' => 'form form-search form-ds', 'method' => 'put']) !!}
 	@else
-		<form class="form form-search form-ds" action="{{route('brands.store')}}" method="post">
+		<!--<form class="form form-search form-ds" action="{{route('brands.store')}}" method="post">-->
+		{!! Form::open(['route' => 'brands.store', 'class' => 'form form-search form-ds']) !!}
 	@endif
 	
 		<div class="form-group">
-			<input type="text" name="name" value="{{old('name')}}" placeholder="Nome" class="form-control">
+			{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! csrf_field() !!}
 			<button class="btn btn-search">Enviar</button>
 		</div>
-	</form>
+	{!! Form::close() !!}
 </div>
 
 @endsection
