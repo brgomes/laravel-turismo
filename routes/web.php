@@ -1,7 +1,7 @@
 <?php
 
 $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
-	$this->post('brands/search', 'BrandController@search')->name('brands.search');
+	$this->any('brands/search', 'BrandController@search')->name('brands.search');
 
 	$this->get('/', 'PanelController@index')->name('panel');
 
