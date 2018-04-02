@@ -17,6 +17,16 @@
 </div>
 
 <div class="content-din">
+	@if(isset($errors) && $errors->any())
+		<div class="alert alert-warning">
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{$error}}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
+
 	<form class="form form-search form-ds" action="{{route('brands.store')}}" method="post">
 		<div class="form-group">
 			<input type="text" name="name" placeholder="Nome" class="form-control">
