@@ -9,4 +9,9 @@ class Brand extends Model
 
 	protected $fillable = ['name'];
 
+	public function search($keySearch, $totalPage)
+	{
+		return $this->where('name', 'LIKE', "%$keySearch%")->paginate($totalPage);
+	}
+
 }
