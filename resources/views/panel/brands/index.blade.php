@@ -18,20 +18,17 @@
 
 			<button class="btn btn-search">Pesquisar</button>
 		{!! Form::close() !!}
+
+		@if(isset($dataForm))
+			<div class="alert alert-info">
+				<a href="{{route('brands.index')}}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				Resultados para: <strong>{{$dataForm['key_search']}}</strong>
+			</div>
+		@endif
 	</div>
 
 	<div class="messages">
-		@if(session('success'))
-			<div class="alert alert-success">
-				{{session('success')}}
-			</div>
-		@endif
-
-		@if(session('error'))
-			<div class="alert alert-danger">
-				{{session('error')}}
-			</div>
-		@endif
+		@include('panel.includes.alerts')
 	</div>
 
 	<div class="class-btn-insert">

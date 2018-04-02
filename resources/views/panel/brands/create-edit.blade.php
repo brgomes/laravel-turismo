@@ -17,15 +17,7 @@
 </div>
 
 <div class="content-din">
-	@if(isset($errors) && $errors->any())
-		<div class="alert alert-warning">
-			<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{$error}}</li>
-				@endforeach
-			</ul>
-		</div>
-	@endif
+	@include('panel.includes.errors')
 
 	@if(isset($brand))
 		<!--<form class="form form-search form-ds" action="{{route('brands.update', $brand->id)}}" method="post">-->

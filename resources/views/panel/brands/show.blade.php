@@ -23,6 +23,8 @@
 		</li>
 	</ul>
 
+	@include('panel.includes.alerts')
+
 	{!! Form::open(['route' => ['brands.destroy', $brand->id], 'class' => 'form form-search form-ds', 'method' => 'delete']) !!}	
 		<div class="form-group">
 			<button class="btn btn-danger">Deletar a marca {{$brand->name}}</button>
