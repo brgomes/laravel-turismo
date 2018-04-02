@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Plane;
 use App\Models\Brand;
+use App\Http\Requests\PlaneStoreUpdateFormRequest;
 
 class PlaneController extends Controller
 {
@@ -52,7 +53,7 @@ class PlaneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlaneStoreUpdateFormRequest $request)
     {
         $dataForm = $request->all();
 
