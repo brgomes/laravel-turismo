@@ -10,11 +10,12 @@ use App\Http\Requests\BrandStoreUpdateFormRequest;
 class BrandController extends Controller
 {
 
-    private $brand;
+    private $_brand;
+    private $_totalPage = 5;
 
     public function __construct(Brand $brand)
     {
-        $this->brand = $brand;
+        $this->_brand = $brand;
     }
 
     /**
@@ -26,7 +27,7 @@ class BrandController extends Controller
     {
         $title = 'Marcas de aviões';
 
-        $brands = $this->brand->all();
+        $brands = $this->_brand->paginate($this->_totalPage);
 
         return view('panel.brands.index', compact('title', 'brands'));
     }
@@ -53,7 +54,7 @@ class BrandController extends Controller
     {
         $dataForm = $request->all();
 
-        if ($this->brand->create($dataForm)) {
+        if ($this->_brand->create($dataForm)) {
             return redirect()->route('brands.index')->with('success', 'Cadastro realizado com sucesso');
         }
 
@@ -79,7 +80,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = $this->brand->find($id);
+        $brand = $this->_brand->find($id);
 
         if (!$brand) {
             return redirect()->back();
@@ -99,7 +100,7 @@ class BrandController extends Controller
      */
     public function update(BrandStoreUpdateFormRequest $request, $id)
     {
-        $brand = $this->brand->find($id);
+        $brand = $this->_brand->find($id);
 
         if (!$brand) {
             return redirect()->back();

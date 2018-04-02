@@ -60,6 +60,8 @@
 			</tr>
 		@endforelse
 	</table>
+
+	{!! $brands->links() !!}
 </div>
 
 @endsection
