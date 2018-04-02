@@ -7,12 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class Plane extends Model
 {
 
-	public function classes()
+	protected $fillable = ['qty_passengers', 'class', 'brand_id'];
+
+	public function classes($className = null)
 	{
-		return [
-			'economy'	=> 'Econômica',
+		$classes = [
+			'economic'	=> 'Econômica',
 			'luxury'	=> 'Luxo'
 		];
+
+		if (null === $className) {
+			return $classes;
+		}
+
+		return $classes[$className];
+	}
+
+	public function brand()
+	{
+		return $this->belongsTo(Brand::class);
 	}
 
 }

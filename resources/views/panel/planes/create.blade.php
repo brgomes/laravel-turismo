@@ -19,7 +19,7 @@
 <div class="content-din">
 	@include('panel.includes.errors')
 
-	{!! Form::open(['route' => 'brands.store', 'class' => 'form form-search form-ds']) !!}
+	{!! Form::open(['route' => 'planes.store', 'class' => 'form form-search form-ds']) !!}
 		@include('panel.planes.form')
 	{!! Form::close() !!}
 </div>
