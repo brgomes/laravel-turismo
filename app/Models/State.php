@@ -14,4 +14,9 @@ class State extends Model
 					->get();
 	}
 
+	public function cities()
+	{
+		return $this->hasMany(City::class);
+	}
+
 }

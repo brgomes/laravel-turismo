@@ -40,7 +40,7 @@
 			<th width="150">Ações</th>
 		</tr>
 
-		@forelse($cities as $city)
+		@forelse($state->cities as $city)
 			<tr>
 				<td>{{$city->name}}</td>
 				<td>{{$city->zip_code}}</td>
@@ -56,7 +56,7 @@
 	</table>
 
 	<p>
-		Total encontrado: <strong>{{$cities->count()}}</strong>
+		Total encontrado: <strong>{{$state->cities->count()}}</strong>
 	</p>
 </div>
 
