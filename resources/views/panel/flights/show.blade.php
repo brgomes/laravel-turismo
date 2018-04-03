@@ -24,28 +24,28 @@
 			Destino: <strong>{{$flight->destination->name}}</strong>
 		</li>
 		<li>
-			Data: <strong>{{$flight->date}}</strong>
+			Data: <strong>{{FormatDateAndTime($flight->date)}}</strong>
 		</li>
 		<li>
-			Duração: <strong>{{$flight->time_duration}}</strong>
+			Duração: <strong>{{FormatDateAndTime($flight->time_duration, 'H:i')}}</strong>
 		</li>
 		<li>
-			Saída: <strong>{{$flight->hour_output}}</strong>
+			Saída: <strong>{{FormatDateAndTime($flight->hour_output, 'H:i')}}</strong>
 		</li>
 		<li>
-			Chegada: <strong>{{$flight->arrival_time}}</strong>
+			Chegada: <strong>{{FormatDateAndTime($flight->arrival_time, 'H:i')}}</strong>
 		</li>
 		<li>
-			Valor anterior: <strong>{{$flight->old_price}}</strong>
+			Valor anterior: <strong>{{number_format($flight->old_price, 2, ',', '.')}}</strong>
 		</li>
 		<li>
-			Valor: <strong>{{$flight->price}}</strong>
+			Valor: <strong>{{number_format($flight->price, 2, ',', '.')}}</strong>
 		</li>
 		<li>
 			Total de parcelas: <strong>{{$flight->total_plots}}</strong>
 		</li>
 		<li>
-			Promoção: <strong>{{$flight->is_promotion}}</strong>
+			Promoção: <strong>{{$flight->is_promotion ? 'Sim' : 'Não'}}</strong>
 		</li>
 		<li>
 			Paradas: <strong>{{$flight->qty_stops}}</strong>
