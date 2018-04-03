@@ -14,7 +14,7 @@
 <div class="content-din bg-white">
 	<div class="form-search">
 		{!! Form::open(['route' => 'brands.search', 'class' => 'form form-inline']) !!}
-			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
+			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'O que deseja encontrar?']) !!}
 
 			<button class="btn btn-search">Pesquisar</button>
 		{!! Form::close() !!}
@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="class-btn-insert">
-		<a href="{{route('brands.create')}}" class="btn-insert">
+		<a href="{{route('flights.create')}}" class="btn-insert">
 			<span class="glyphicon glyphicon-plus"></span>
 			Cadastrar
 		</a>
