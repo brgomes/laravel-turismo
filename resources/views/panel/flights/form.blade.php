@@ -4,13 +4,13 @@
 </div>
 
 <div class="form-group">
-    <label for="origin">Origem</label>
-    {!! Form::select('origin', $airports, null, ['class' => 'form-control']) !!}
+    <label for="airport_origin_id">Origem</label>
+    {!! Form::select('airport_origin_id', $airports, null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="destination">Destino</label>
-    {!! Form::select('destination', $airports, null, ['class' => 'form-control']) !!}
+    <label for="airport_destination_id">Destino</label>
+    {!! Form::select('airport_destination_id', $airports, null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

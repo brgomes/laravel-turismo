@@ -33,7 +33,7 @@ class CreateFlightsTable extends Migration
 
             $table->foreign('plane_id')->references('id')->on('planes')->onDelete('cascade');
             $table->foreign('airport_origin_id')->references('id')->on('airports')->onDelete('cascade');
-            $table->foreign('airport_destination_id')->references('id')->on('planes')->onDelete('cascade');
+            $table->foreign('airport_destination_id')->references('id')->on('airports')->onDelete('cascade');
         });
     }
 

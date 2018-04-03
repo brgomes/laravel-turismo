@@ -33,12 +33,12 @@ class Flight extends Model
 
 	public function newFlight(Request $request)
 	{
-		$data = $request->all();
+		return $this->create($request->all());
+	}
 
-		$data['airport_origin_id'] = $request->origin;
-		$data['airport_destination_id'] = $request->destination;
-
-		return $this->create($data);
+	public function updateFlight(Request $request)
+	{
+		return $this->update($request->all());
 	}
 
 	public function origin()
