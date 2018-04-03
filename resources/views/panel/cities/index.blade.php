@@ -15,7 +15,7 @@
 
 <div class="content-din bg-white">
 	<div class="form-search">
-		{!! Form::open(['route' => ['state.cities.search', $state->initials], 'class' => 'form form-inline']) !!}
+		{!! Form::open(['route' => ['state.cities.search', $state->initials], 'class' => 'form form-inline', 'method' => 'get']) !!}
 			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
 
 			<button class="btn btn-search">Pesquisar</button>
@@ -23,7 +23,7 @@
 
 		@if(isset($dataForm))
 			<div class="alert alert-info">
-				<a href="{{route('states.index')}}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				<a href="{{route('state.cities', $state->initials)}}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 				Resultados para: <strong>{{$dataForm['key_search']}}</strong>
 			</div>
 		@endif
@@ -55,7 +55,11 @@
 		@endforelse
 	</table>
 
-	{!! $cities->links() !!}
+	@if(isset($dataForm))
+		{!! $cities->appends($dataForm)->links() !!}
+	@else
+		{!! $cities->links() !!}
+	@endif
 
 	<p>
 		Total encontrado: <strong>{{$cities->total()}}</strong>
