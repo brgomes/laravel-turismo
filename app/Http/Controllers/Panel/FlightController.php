@@ -12,7 +12,7 @@ class FlightController extends Controller
 {
 
     private $_flight;
-    private $_totalPage = 2;
+    private $_totalPage = 5;
 
     public function __construct(Flight $flight)
     {
@@ -55,6 +55,13 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            $extension = $request->imagem->extension();
+            $filename = uniqid(date('HisYmd')) . '.' . $extension;
+
+            $request->imagem->storeAs('flights', $filename);
+        }
+
         if ($this->_flight->create($request->all())) {
             return redirect()->route('flights.index')->with('success', 'Sucesso ao cadastrar');
         }
