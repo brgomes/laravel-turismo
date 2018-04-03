@@ -26,6 +26,15 @@ class Flight extends Model
 		'description'
 	];
 
+	public function newFlight(Request $request, $filename)
+	{
+		$data = $request->all();
+
+		$data['imagem'] = $filename;
+
+		return $this->create($data);
+	}
+
 	public function getItens($totalPage)
 	{
 		return $this->with(['origin', 'destination'])
