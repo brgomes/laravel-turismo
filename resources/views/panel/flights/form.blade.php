@@ -9,8 +9,8 @@
 </div>
 
 <div class="form-group">
-    <label for="destiny">Destino</label>
-    {!! Form::select('destiny', $airports, null, ['class' => 'form-control']) !!}
+    <label for="destination">Destino</label>
+    {!! Form::select('destination', $airports, null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
@@ -24,8 +24,8 @@
 </div>
 
 <div class="form-group">
-    <label for="time">Horário saída</label>
-    {!! Form::time('time', null, ['class' => 'form-control', 'placeholder' => 'Horário saída']) !!}
+    <label for="hour_output">Horário saída</label>
+    {!! Form::time('hour_output', null, ['class' => 'form-control', 'placeholder' => 'Horário saída']) !!}
 </div>
 
 <div class="form-group">
