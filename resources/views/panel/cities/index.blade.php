@@ -4,16 +4,18 @@
 
 <div class="bred">
     <a href="{{route('panel')}}" class="bred">Home  ></a>
-    <a href="{{route('states.index')}}" class="bred">Estados</a>
+    <a href="{{route('states.index')}}" class="bred">Estados ></a>
+    <a href="{{route('state.cities', $state->initials)}}" class="bred">{{$state->name}} ></a>
+    <a href="" class="bred">Cidades</a>
 </div>
 
 <div class="title-pg">
-	<h1 class="title-pg">Estados</h1>
+	<h1 class="title-pg">Cidades de {{$state->name}}</h1>
 </div>
 
 <div class="content-din bg-white">
 	<div class="form-search">
-		{!! Form::open(['route' => 'states.search', 'class' => 'form form-inline']) !!}
+		{!! Form::open(['route' => ['state.cities.search', $state->initials], 'class' => 'form form-inline']) !!}
 			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
 
 			<button class="btn btn-search">Pesquisar</button>
@@ -34,19 +36,16 @@
 	<table class="table table-striped">
 		<tr>
 			<th>Nome</th>
-			<th>Sigla</th>
+			<th>Zip code</th>
 			<th width="150">Ações</th>
 		</tr>
 
-		@forelse($states as $state)
+		@forelse($cities as $city)
 			<tr>
-				<td>{{$state->name}}</td>
-				<td>{{$state->initials}}</td>
+				<td>{{$city->name}}</td>
+				<td>{{$city->zip_code}}</td>
 				<td>
-					<a href="{{route('state.cities', $state->initials)}}" class="edit">
-						<i class="fa fa-map-marker" aria-hidden="true"></i>
-						Cidades
-					</a>
+					#ações
 				</td>
 			</tr>
 		@empty
@@ -57,7 +56,7 @@
 	</table>
 
 	<p>
-		Total encontrado: <strong>{{$states->count()}}</strong>
+		Total encontrado: <strong>{{$cities->count()}}</strong>
 	</p>
 </div>
 

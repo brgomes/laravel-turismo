@@ -9,8 +9,11 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 	$this->any('planes/search', 'PlaneController@search')->name('planes.search');
 	$this->resource('planes', 'PlaneController');
 
-	$this->any('states/search', 'StateController@search')->name('states.search');
+	$this->get('states/search', 'StateController@search')->name('states.search');
 	$this->get('states', 'StateController@index')->name('states.index');
+
+	$this->get('state/{initials}/cities/search', 'CityController@search')->name('state.cities.search');
+	$this->get('state/{initials}/cities', 'CityController@index')->name('state.cities');
 
 	$this->get('/', 'PanelController@index')->name('panel');
 
