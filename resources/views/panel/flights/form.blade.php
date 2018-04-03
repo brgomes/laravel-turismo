@@ -44,8 +44,8 @@
 </div>
 
 <div class="form-group">
-    <label for="total_plots">Total de parelas</label>
-    {!! Form::text('total_plots', null, ['class' => 'form-control', 'placeholder' => 'Total de parelas']) !!}
+    <label for="total_plots">Total de parcelas</label>
+    {!! Form::text('total_plots', null, ['class' => 'form-control', 'placeholder' => 'Total de parcelas']) !!}
 </div>
 
 <div class="form-group">

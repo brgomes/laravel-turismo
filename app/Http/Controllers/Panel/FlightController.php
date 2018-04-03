@@ -55,7 +55,7 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {
-        if ($this->_flight->newFlight($request)) {
+        if ($this->_flight->create($request->all())) {
             return redirect()->route('flights.index')->with('success', 'Sucesso ao cadastrar');
         }
 
@@ -70,7 +70,15 @@ class FlightController extends Controller
      */
     public function show($id)
     {
-        //
+        $flight = $this->_flight->with(['origin', 'destination'])->find($id);
+
+        if (!$flight) {
+            return redirect()->back();
+        }
+
+        $title = 'Detalhes do vôo ' . $flight->id;
+
+        return view('panel.flights.show', compact('flight', 'title'));
     }
 
     /**
@@ -109,7 +117,7 @@ class FlightController extends Controller
             return redirect()->back();
         }
 
-        if ($flight->updateFlight($request)) {
+        if ($flight->update($request->all())) {
             return redirect()->route('flights.index')->with('success', 'Sucesso ao alterar');
         }
 
@@ -124,6 +132,8 @@ class FlightController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->_flight->find($id)->delete();
+
+        return redirect()->route('flights.index')->with('success', 'Sucesso ao deletar');
     }
 }

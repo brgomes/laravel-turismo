@@ -31,16 +31,6 @@ class Flight extends Model
 					->paginate($totalPage);
 	}
 
-	public function newFlight(Request $request)
-	{
-		return $this->create($request->all());
-	}
-
-	public function updateFlight(Request $request)
-	{
-		return $this->update($request->all());
-	}
-
 	public function origin()
 	{
 		return $this->belongsTo(Airport::class, 'airport_origin_id');
