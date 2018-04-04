@@ -13,8 +13,11 @@
 
 <div class="content-din bg-white">
 	<div class="form-search">
-		{!! Form::open(['route' => 'brands.search', 'class' => 'form form-inline']) !!}
-			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'O que deseja encontrar?']) !!}
+		{!! Form::open(['route' => 'flights.search', 'class' => 'form form-inline', 'method' => 'get']) !!}
+			{!! Form::number('code', null, ['class' => 'form-control', 'placeholder' => 'Código']) !!}
+			{!! Form::date('date', null, ['class' => 'form-control']) !!}
+			{!! Form::time('hour_output', null, ['class' => 'form-control']) !!}
+			{!! Form::number('total_stops', null, ['class' => 'form-control', 'placeholder' => 'Total de paradas']) !!}
 
 			<button class="btn btn-search">Pesquisar</button>
 		{!! Form::close() !!}
@@ -22,7 +25,7 @@
 		@if(isset($dataForm))
 			<div class="alert alert-info">
 				<a href="{{route('flights.index')}}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
-				Resultados para: <strong>{{$dataForm['key_search']}}</strong>
+				Resultados da pesquisa
 			</div>
 		@endif
 	</div>

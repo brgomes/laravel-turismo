@@ -30,6 +30,7 @@ class Flight extends Model
 	{
 		$data = $request->all();
 
+		$data['is_promotion'] = isset($data['is_promotion']);
 		$data['imagem'] = $filename;
 
 		return $this->create($data);
@@ -39,6 +40,7 @@ class Flight extends Model
 	{
 		$data = $request->all();
 
+		$data['is_promotion'] = isset($data['is_promotion']);
 		$data['imagem'] = $filename;
 
 		return $this->update($data);
@@ -64,5 +66,28 @@ class Flight extends Model
 	{
 		return Carbon::parse($value)->format('d/m/Y');
 	}*/
+
+	public function search(Request $request, $totalPage)
+	{
+		$flights = $this->where(function($query) use ($request) {
+			if ($request->code) {
+				$query->where('id', $request->code);
+			}
+
+			if ($request->date) {
+				$query->where('date', '>=', $request->date);
+			}
+
+			if ($request->hour_output) {
+				$query->where('hour_output', $request->output);
+			}
+
+			if ($request->total_stops) {
+				$query->where('qty_stops', $request->total_stops);
+			}
+		})->paginate($totalPage);
+
+		return $flights;
+	}
 
 }
