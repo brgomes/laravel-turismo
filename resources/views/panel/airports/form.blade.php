@@ -1,9 +1,4 @@
 <div class="form-group">
-    <label for="city_id">Escolha a cidade</label>
-    {!! Form::select('city_id', $cities, Request::segment('3'), ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
     <label for="name">Nome</label>
     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nome do aeroporto']) !!}
 </div>
@@ -35,7 +30,7 @@
 
 <div class="form-group">
     <label for="complement">Complemento</label>
-    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Complemento']) !!}
+    {!! Form::text('complement', null, ['class' => 'form-control', 'placeholder' => 'Complemento']) !!}
 </div>
 
 <div class="form-group">

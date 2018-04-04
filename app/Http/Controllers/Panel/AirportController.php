@@ -53,9 +53,8 @@ class AirportController extends Controller
         }
 
         $title = 'Cadastrar novo aeroporto para ' . $city->name;
-        $cities = $this->_city->pluck('name', 'id');
 
-        return view('panel.airports.create', compact('title', 'city', 'cities'));
+        return view('panel.airports.create', compact('title', 'city'));
     }
 
     /**
@@ -64,9 +63,19 @@ class AirportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idCity)
     {
-        //
+        $city = $this->_city->find($idCity);
+
+        if (!$city) {
+            return redirect()->back();
+        }
+
+        if ($city->airports()->create($request->all())) {
+            return redirect()->route('airports.index', $city->id)->with('success', 'Aeroporto cadastrado com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao cadastrar')->withInput();
     }
 
     /**

@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Airport extends Model
 {
 
+	protected $fillable = [
+		'city_id',
+		'name',
+		'latitude',
+		'longitude',
+		'address',
+		'number',
+		'zip_code',
+		'complement'
+	];
+
 	public function flights()
 	{
 		
