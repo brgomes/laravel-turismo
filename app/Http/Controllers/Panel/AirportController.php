@@ -84,9 +84,18 @@ class AirportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idCity, $idAirport)
     {
-        //
+        $airport = $this->_airport->with('city')->find($idAirport);
+
+        if (!$airport) {
+            return redirect()->back();
+        }
+
+        $city = $airport->city;
+        $title = 'Aeroporto ' . $airport->name . ' - ' . $city->name;
+
+        return view('panel.airports.show', compact('title', 'airport', 'city'));
     }
 
     /**
@@ -137,8 +146,18 @@ class AirportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idCity, $idAirport)
     {
-        //
+        $airport = $this->_airport->with('city')->find($idAirport);
+
+        if (!$airport) {
+            return redirect()->back();
+        }
+
+        if ($airport->delete()) {
+            return redirect()->route('airports.index', $airport->city_id)->with('success', 'Aeroporto deletado com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao deletar')->withInput();
     }
 }
