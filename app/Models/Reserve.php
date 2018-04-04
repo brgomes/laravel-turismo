@@ -17,4 +17,20 @@ class Reserve extends Model
 		$this->belongsTo(Flight::class);
 	}
 
+	public function status($status = null)
+	{
+		$statusAvailable = [
+			'reserved' 	=> 'Reservado',
+			'canceled'	=> 'Cancelado',
+			'paid'		=> 'Pago',
+			'conclued'	=> 'Concluído'
+		];
+
+		if (isset($status)) {
+			return $statusAvailable[$status];
+		}
+
+		return $statusAvailable;
+	}
+
 }
