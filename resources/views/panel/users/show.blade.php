@@ -32,7 +32,7 @@
 
 	{!! Form::open(['route' => ['users.destroy', $user->id], 'class' => 'form form-search form-ds', 'method' => 'delete']) !!}	
 		<div class="form-group">
-			<button class="btn btn-danger">Deletar o usuário #{{$user->id}}</button>
+			<button class="btn btn-danger">Deletar o usuário {{$user->name}}</button>
 		</div>
 	{!! Form::close() !!}
 </div>
