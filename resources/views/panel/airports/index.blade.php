@@ -16,15 +16,15 @@
 
 <div class="content-din bg-white">
 	<div class="form-search">
-		{!! Form::open(['route' => 'brands.search', 'class' => 'form form-inline']) !!}
+		{!! Form::open(['route' => ['airports.search', $city->id], 'class' => 'form form-inline', 'method' => 'get']) !!}
 			{!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Nome']) !!}
 
 			<button class="btn btn-search">Pesquisar</button>
 		{!! Form::close() !!}
 
-		@if(isset($dataForm))
+		@if(isset($dataForm['key_search']))
 			<div class="alert alert-info">
-				<a href="{{route('airports.index')}}"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-refresh" aria-hidden="true"></i></a>
 				Resultados para: <strong>{{$dataForm['key_search']}}</strong>
 			</div>
 		@endif

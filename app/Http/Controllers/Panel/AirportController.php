@@ -160,4 +160,22 @@ class AirportController extends Controller
 
         return redirect()->back()->with('error', 'Falha ao deletar')->withInput();
     }
+
+    public function search($idCity, Request $request)
+    {
+        $city = $this->_city->find($idCity);
+
+        if (!$city) {
+            return redirect()->back();
+        }
+
+        $title = 'Aeroportos da cidade ' . $city->name;
+
+        $airports = $this->_airport->search($city, $request, $this->_totalPage);
+
+        $dataForm = $request->except('_token');
+
+        return view('panel.airports.index', compact('title', 'airports', 'city', 'dataForm'));
+    }
+
 }
