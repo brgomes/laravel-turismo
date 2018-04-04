@@ -18,6 +18,11 @@ class Airport extends Model
 		'complement'
 	];
 
+	public function city()
+	{
+		return $this->belongsTo(City::class);
+	}
+
 	public function flights()
 	{
 		
