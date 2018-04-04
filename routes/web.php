@@ -18,6 +18,8 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 	$this->get('flights/search', 'FlightController@search')->name('flights.search');
 	$this->resource('flights', 'FlightController');
 
+	$this->resource('city/{id}/airports', 'AirportController');
+
 	$this->get('/', 'PanelController@index')->name('panel');
 
 });

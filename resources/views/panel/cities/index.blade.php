@@ -45,7 +45,10 @@
 				<td>{{$city->name}}</td>
 				<td>{{$city->zip_code}}</td>
 				<td>
-					#ações
+					<a href="{{route('airports.index', $city->id)}}" class="edit">
+						<i class="fa fa-thumb-tack" aria-hidden="true"></i>
+						Aeroportos
+					</a>
 				</td>
 			</tr>
 		@empty
