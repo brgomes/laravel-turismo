@@ -27,7 +27,7 @@ class ReserveController extends Controller
     public function index()
     {
         $title = 'Reservas de passagens aéreas';
-        $reserves = $this->_reserve->with(['user', 'flight.origin', 'flight.destination'])->paginate($this->_totalPage);
+        $reserves = $this->_reserve->with(['user', 'flight'])->paginate($this->_totalPage);
 
         return view('panel.reserves.index', compact('title', 'reserves'));
     }
@@ -56,7 +56,11 @@ class ReserveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($this->_reserve->create($request->all())) {
+            return redirect()->route('reserves.index')->with('success', 'Reserva cadastrada com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao reservar')->withInput();
     }
 
     /**

@@ -9,8 +9,8 @@
 </div>
 
 <div class="form-group">
-    <label for="date">Data da reserva</label>
-    {!! Form::date('date', date('Y-m-d'), ['class' => 'form-control', 'placeholder' => 'Data']) !!}
+    <label for="date_reserved">Data da reserva</label>
+    {!! Form::date('date_reserved', date('Y-m-d'), ['class' => 'form-control', 'placeholder' => 'Data']) !!}
 </div>
 
 <div class="form-group">
