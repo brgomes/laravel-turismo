@@ -127,7 +127,21 @@ class FlightController extends Controller
             return redirect()->back();
         }
 
-        if ($flight->update($request->all())) {
+        $filename = null;
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            if ($flight->imagem) {
+                $filename = $flight->imagem;
+            } else {
+                $filename = uniqid(date('HisYmd')) . '.' . $request->imagem->extension();
+            }
+
+            if (!$request->imagem->storeAs('flights', $filename)) {
+                return redirec()->back()->with('error', 'Falha ao fazer upload')->withInput();
+            }
+        }
+
+        if ($flight->updateFlight($request, $filename)) {
             return redirect()->route('flights.index')->with('success', 'Sucesso ao alterar');
         }
 

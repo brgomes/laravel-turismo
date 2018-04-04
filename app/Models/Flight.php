@@ -26,13 +26,22 @@ class Flight extends Model
 		'description'
 	];
 
-	public function newFlight(Request $request, $filename)
+	public function newFlight(Request $request, $filename = null)
 	{
 		$data = $request->all();
 
 		$data['imagem'] = $filename;
 
 		return $this->create($data);
+	}
+
+	public function updateFlight(Request $request, $filename = null)
+	{
+		$data = $request->all();
+
+		$data['imagem'] = $filename;
+
+		return $this->update($data);
 	}
 
 	public function getItens($totalPage)
