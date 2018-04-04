@@ -29,7 +29,10 @@ class FlightController extends Controller
         $title = 'Vôos disponíveis';
         $flights = $this->_flight->getItens($this->_totalPage);
 
-        return view('panel.flights.index', compact('title', 'flights'));
+        $airports = Airport::pluck('name', 'id');
+        $airports->prepend('-- ESCOLHA O AEROPORTO --', null);
+
+        return view('panel.flights.index', compact('title', 'flights', 'airports'));
     }
 
     /**
@@ -167,7 +170,10 @@ class FlightController extends Controller
         $title = 'Resultados dos vôos pesquisados';
         $dataForm = $request->except('_token');
 
-        return view('panel.flights.index', compact('title', 'flights', 'dataForm'));
+        $airports = Airport::pluck('name', 'id');
+        $airports->prepend('-- ESCOLHA O AEROPORTO --', null);
+
+        return view('panel.flights.index', compact('title', 'flights', 'dataForm', 'airports'));
     }
 
 }
