@@ -21,6 +21,9 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 	$this->get('city/{id}/airports/search', 'AirportController@search')->name('airports.search');
 	$this->resource('city/{id}/airports', 'AirportController');
 
+	$this->get('users/search', 'UserController@search')->name('users.search');
+	$this->resource('users', 'UserController');
+
 	$this->get('/', 'PanelController@index')->name('panel');
 
 });
