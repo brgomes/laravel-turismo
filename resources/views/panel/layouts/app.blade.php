@@ -66,6 +66,13 @@
                         Usuários
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{route('users.index')}}">
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        Reservas
+                    </a>
+                </li>
             </ul>
       </div>
 

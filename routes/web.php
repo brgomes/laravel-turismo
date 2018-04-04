@@ -24,6 +24,11 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 	$this->get('users/search', 'UserController@search')->name('users.search');
 	$this->resource('users', 'UserController');
 
+	$this->resource('reserves', 'ReserveController', [
+		//'only => [],'
+		'except' => ['show', 'destroy']
+	]);
+
 	$this->get('/', 'PanelController@index')->name('panel');
 
 });
