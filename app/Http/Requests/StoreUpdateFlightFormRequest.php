@@ -33,7 +33,7 @@ class StoreUpdateFlightFormRequest extends FormRequest
             'arrival_time'              => 'required',
             'old_price'                 => 'required',
             'price'                     => 'required',
-            'total_plots'               => 'required|digits_between:1,12',
+            'total_plots'               => 'required|integer|between:1,12',
             'price'                     => 'required',
             'is_promotion'              => 'boolean',
             'imagem'                    => 'image',
