@@ -8,7 +8,7 @@
     <a href="" class="bred">Cadastrar</a>
 </div>
 
-<a href="{{route('brands.create')}}" class="btn btn-success">
+<a href="{{route('reserves.create')}}" class="btn btn-success">
 	<i class="fa fa-plus-circle" aria-hidden="true"></i> Cadastrar
 </a>
 
