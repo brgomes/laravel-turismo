@@ -19,7 +19,7 @@
 <div class="content-din">
 	@include('panel.includes.errors')
 
-	{!! Form::model($reserve, ['route' => ['reserves.update', $reserve->id], 'class' => 'form form-search form-ds']) !!}
+	{!! Form::model($reserve, ['route' => ['reserves.update', $reserve->id], 'class' => 'form form-search form-ds', 'method' => 'put']) !!}
 		<div class="form-group">
 		    <label for="status">Status</label>
 		    {!! Form::select('status', $status, null, ['class' => 'form-control']) !!}

@@ -95,7 +95,17 @@ class ReserveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reserve = $this->_reserve->with(['user', 'flight'])->find($id);
+
+        if (!$reserve) {
+            return redirect()->back();
+        }
+
+        if ($reserve->update($request->all())) {
+            return redirect()->route('reserves.index')->with('success', 'Status alterado com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao alterar o status')->withInput();
     }
 
 }

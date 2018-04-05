@@ -36,4 +36,9 @@ class Reserve extends Model
 		return $statusAvailable;
 	}
 
+	public function changeStatus($status)
+	{
+
+	}
+
 }
