@@ -83,7 +83,7 @@ class ReserveController extends Controller
 
         $title = 'Editar reserva do usuário: ' . $user->name;
 
-        return view('panel.reserves.edit', compact('title', 'reserve', 'user', 'flight', 'status'));
+        return view('panel.reserves.edit', compact('title', 'reserve', 'user', 'status'));
     }
 
     /**
@@ -106,6 +106,15 @@ class ReserveController extends Controller
         }
 
         return redirect()->back()->with('error', 'Falha ao alterar o status')->withInput();
+    }
+
+    public function search(Request $request)
+    {
+        $reserves = $this->_reserve->search($request, $this->_totalPage);
+        $title = 'Resultados para a pesquisa';
+        $dataForm = $request->except('_token');
+
+        return view('panel.reserves.search', compact('reserves', 'title', 'dataForm'));
     }
 
 }

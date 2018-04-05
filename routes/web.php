@@ -24,6 +24,7 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 	$this->get('users/search', 'UserController@search')->name('users.search');
 	$this->resource('users', 'UserController');
 
+	$this->get('reserves/search', 'ReserveController@search')->name('reserves.search');
 	$this->resource('reserves', 'ReserveController', [
 		//'only => [],'
 		'except' => ['show', 'destroy']
