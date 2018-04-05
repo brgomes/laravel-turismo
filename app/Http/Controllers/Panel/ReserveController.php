@@ -71,7 +71,19 @@ class ReserveController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reserve = $this->_reserve->with(['user', 'flight'])->find($id);
+
+        if (!$reserve) {
+            return redirect()->back();
+        }
+
+        $user = $reserve->user;
+        $flight = $reserve->flight;
+        $status = $this->_reserve->status();
+
+        $title = 'Editar reserva do usuário: ' . $user->name;
+
+        return view('panel.reserves.edit', compact('title', 'reserve', 'user', 'flight', 'status'));
     }
 
     /**
