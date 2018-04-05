@@ -13,7 +13,7 @@ class ReserveController extends Controller
 {
 
     private $_reserve;
-    private $_totalPage = 5;
+    private $_totalPage = 10;
 
     public function __construct(Reserve $reserve)
     {

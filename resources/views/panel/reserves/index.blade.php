@@ -38,7 +38,7 @@
 			<tr>
 				<td>{{$reserve->id}}</td>
 				<td>{{$reserve->user->name}}</td>
-				<td>De <strong>{{$reserve->flight->origin->name}}</strong> para <strong>{{$reserve->flight->destination->name}}</strong> em {{formatDateAndTime($reserve->date_reserved)}}</td>
+				<td>#{{$reserve->flight_id}} - De <strong>{{$reserve->flight->origin->name}}</strong> para <strong>{{$reserve->flight->destination->name}}</strong> em {{formatDateAndTime($reserve->date_reserved)}}</td>
 				<td>{{$reserve->status($reserve->status)}}</td>
 				<td>
 					<a href="{{route('reserves.edit', $reserve->id)}}" class="edit">Edit</a>

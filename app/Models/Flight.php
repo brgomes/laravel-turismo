@@ -30,6 +30,17 @@ class Flight extends Model
 		'description'
 	];
 
+	public function plane()
+	{
+		return $this->belongsTo(Plane::class);
+	}
+
+	public function reserves()
+	{
+		return $this->hasMany(Reserve::class)
+					->where('reserves.status', '<>', 'canceled');
+	}
+
 	public function newFlight(Request $request, $filename = null)
 	{
 		$data = $request->all();
