@@ -13,7 +13,7 @@
 
             <datalist id="origin">
                 @forelse($airports as $airport)
-                    <option value="{{$airport->city->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
+                    <option value="{{$airport->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
                 @empty
                 @endforelse
             </datalist>
@@ -24,7 +24,7 @@
 
             <datalist id="destination">
                 @forelse($airports as $airport)
-                    <option value="{{$airport->city->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
+                    <option value="{{$airport->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
                 @empty
                 @endforelse
             </datalist>
