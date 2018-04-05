@@ -39,15 +39,29 @@ class Reserve extends Model
 
 	public function search(Request $request, $totalPage)
 	{
-		/*$this->where(function($query) use ($request) {
-			if ($request->date) {
-
-			}
-		})->paginate($totalPage);*/
-
 		$reserves = $this->join('users', 'users.id', '=', 'reserves.user_id')
 						->join('flights', 'flights.id', '=', 'reserves.flight_id')
 						->select('reserves.*', 'users.name as user_name', 'users.email', 'users.id as user_id', 'flights.id as flight_id', 'flights.date')
+						->where(function($query) use ($request) {
+							if ($request->user) {
+								$dataUser = $request->user;
+
+								$query->where(function($qr) use ($dataUser) {
+									$qr->where('users.name', 'LIKE', "%{$dataUser}%");
+									$qr->orWhere('users.email', $dataUser);
+								});
+							}
+
+							if ($request->date) {
+								$query->where('flights.date', '=', $request->date);
+							}
+
+							if ($request->reserve) {
+								$query->where('reserves.id', $request->reserve);
+							}
+						})
+						->where('reserves.status', $request->status)
+						//->toSql();
 						->paginate($totalPage);
 
 		return $reserves;

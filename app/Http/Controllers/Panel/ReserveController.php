@@ -28,8 +28,9 @@ class ReserveController extends Controller
     {
         $title = 'Reservas de passagens aéreas';
         $reserves = $this->_reserve->with(['user', 'flight.origin', 'flight.destination'])->paginate($this->_totalPage);
+        $status = $this->_reserve->status();
 
-        return view('panel.reserves.index', compact('title', 'reserves'));
+        return view('panel.reserves.index', compact('title', 'reserves', 'status'));
     }
 
     /**
@@ -113,8 +114,9 @@ class ReserveController extends Controller
         $reserves = $this->_reserve->search($request, $this->_totalPage);
         $title = 'Resultados para a pesquisa';
         $dataForm = $request->except('_token');
+        $status = $this->_reserve->status();
 
-        return view('panel.reserves.search', compact('reserves', 'title', 'dataForm'));
+        return view('panel.reserves.search', compact('reserves', 'title', 'dataForm', 'status'));
     }
 
 }
