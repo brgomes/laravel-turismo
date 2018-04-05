@@ -9,22 +9,22 @@
 
     {!! Form::open(['route' => 'search.flights.site', 'class' => 'form-home text-center']) !!}
         <div class="form-group">
-            {!! Form::text('origin', null, ['class' => 'form-control', 'list' => 'origin', 'placeholder' => 'Cidade origem']) !!}
+            {!! Form::text('origin', null, ['class' => 'form-control', 'list' => 'origin', 'placeholder' => 'Aeroporto origem']) !!}
 
             <datalist id="origin">
-                @forelse($cities as $city)
-                    <option value="{{$city->name}}">
+                @forelse($airports as $airport)
+                    <option value="{{$airport->city->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
                 @empty
                 @endforelse
             </datalist>
         </div>
 
         <div class="form-group">
-            {!! Form::text('destination', null, ['class' => 'form-control', 'list' => 'destination', 'placeholder' => 'Cidade destino']) !!}
+            {!! Form::text('destination', null, ['class' => 'form-control', 'list' => 'destination', 'placeholder' => 'Aeroporto destino']) !!}
 
             <datalist id="destination">
-                @forelse($cities as $city)
-                    <option value="{{$city->name}}">
+                @forelse($airports as $airport)
+                    <option value="{{$airport->city->id}} - {{$airport->city->name}}, {{$airport->city->state->initials}} / {{$airport->name}}">
                 @empty
                 @endforelse
             </datalist>
