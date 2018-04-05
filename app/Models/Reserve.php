@@ -67,4 +67,14 @@ class Reserve extends Model
 		return $reserves;
 	}
 
+	public function newReserve($idFlight)
+	{
+		$this->user_id 			= auth()->user()->id;
+		$this->flight_id 		= $idFlight;
+		$this->date_reserved 	= date('Y-m-d');
+		$this->status 			= 'reserved';
+
+		return $this->save();
+	}
+
 }

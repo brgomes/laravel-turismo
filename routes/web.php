@@ -36,7 +36,11 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 
 $this->group(['middleware' => 'auth'], function() {
 
-	$this->get('detalhes-voo/{id}', 'Site\SiteController@detailsFlight')->middleware('auth')->name('details.flight');
+	$this->get('detalhes-voo/{id}', 'Site\SiteController@detailsFlight')->name('details.flight');
+
+	$this->post('reservar', 'Site\SiteController@reserveFlight')->name('reserve.flight');
+
+	$this->get('minhas-compras', 'Site\SiteController@myPurchaces')->name('purchaces');
 
 });
 
