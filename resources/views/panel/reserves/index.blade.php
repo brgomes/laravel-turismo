@@ -50,9 +50,9 @@
 		@forelse($reserves as $reserve)
 			<tr>
 				<td>{{$reserve->id}}</td>
-				<td>{{$reserve->name}}</td>
-				<td>{{$reserve->id}}</td>
-				<td>{{$reserve->status}}</td>
+				<td>{{$reserve->user->name}}</td>
+				<td>De <strong>{{$reserve->flight->origin->name}}</strong> para <strong>{{$reserve->flight->destination->name}}</strong></td>
+				<td>{{$reserve->status($reserve->status)}}</td>
 				<td>
 					<a href="{{route('reserves.edit', $reserve->id)}}" class="edit">Edit</a>
 				</td>

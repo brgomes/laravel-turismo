@@ -12,12 +12,12 @@ class Reserve extends Model
 
 	public function user()
 	{
-		$this->belongsTo(User::class);
+		return $this->belongsTo(User::class);
 	}
 
 	public function flight()
 	{
-		$this->belongsTo(Flight::class);
+		return $this->belongsTo(Flight::class);
 	}
 
 	public function status($status = null)
