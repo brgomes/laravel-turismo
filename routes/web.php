@@ -34,6 +34,12 @@ $this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
 
 });
 
+$this->group(['middleware' => 'auth'], function() {
+
+	$this->get('detalhes-voo/{id}', 'Site\SiteController@detailsFlight')->middleware('auth')->name('details.flight');
+
+});
+
 $this->get('/', 'Site\SiteController@index');
 
 $this->post('pesquisar', 'Site\SiteController@search')->name('search.flights.site');
