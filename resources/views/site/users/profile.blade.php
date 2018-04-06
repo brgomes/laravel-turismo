@@ -7,6 +7,8 @@
     <section class="container">
         <h1 class="title">Meu Perfil</h1>
 
+        @include('panel.includes.alerts')
+
         <div class="">
             {!! Form::model(auth()->user(), ['route' => 'update.profile', 'class' => 'form-eti']) !!}
         

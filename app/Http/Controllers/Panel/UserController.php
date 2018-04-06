@@ -158,7 +158,18 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
-        return 'Atualizando os dados do usuário';
+        $user = auth()->user();
+        $user->name = $request->name;
+
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+
+        if ($user->save()) {
+            return redirect()->route('my.profile')->with('success', 'Atualizado com sucesso');
+        }
+
+        return redirect()->back()->with('error', 'Falha ao atualizar');
     }
 
 }
