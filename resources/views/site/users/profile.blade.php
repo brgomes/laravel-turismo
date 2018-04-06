@@ -9,6 +9,8 @@
 
         @include('panel.includes.alerts')
 
+        @include('panel.includes.errors')
+
         <div class="">
             {!! Form::model(auth()->user(), ['route' => 'update.profile', 'class' => 'form-eti', 'files' => true]) !!}
         
