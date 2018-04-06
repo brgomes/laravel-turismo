@@ -21,7 +21,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <!--Icons-->
-        <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="{{url('assets/panel/css/font-awesome.min.css')}}">
 
         <!--Favicon-->
         <link rel="icon" href="{{url('assets/site/images/favicon.png')}}" type="image/png">
@@ -59,8 +59,8 @@
                                 Nome Usuário
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="?pg=meu-perfil">Meu Perfil</a>
-                                <a class="dropdown-item" href="?pg=compras">Minhas Compras</a>
+                                <a class="dropdown-item" href="?pg=meu-perfil">Meu perfil</a>
+                                <a class="dropdown-item" href="{{route('my.purchases')}}">Minhas compras</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="">Sair</a>
                             </div>

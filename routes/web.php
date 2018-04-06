@@ -40,7 +40,7 @@ $this->group(['middleware' => 'auth'], function() {
 
 	$this->post('reservar', 'Site\SiteController@reserveFlight')->name('reserve.flight');
 
-	$this->get('minhas-compras', 'Site\SiteController@myPurchaces')->name('purchaces');
+	$this->get('minhas-compras', 'Site\SiteController@myPurchases')->name('my.purchases');
 
 });
 
