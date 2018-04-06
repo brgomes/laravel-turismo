@@ -44,7 +44,9 @@ $this->group(['middleware' => 'auth'], function() {
 
 	$this->get('detalhes-compra/{id}', 'Site\SiteController@purchaseDetail')->name('purchase.detail');
 
-	$this->get('meu-perfil', 'Site\SiteController@myProfile')->name('my.profile');
+	$this->get('meu-perfil', 'Panel\UserController@myProfile')->name('my.profile');
+
+	$this->post('atualizar-perfil', 'Panel\UserController@updateProfile')->name('update.profile');
 
 });
 
