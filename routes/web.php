@@ -44,9 +44,11 @@ $this->group(['middleware' => 'auth'], function() {
 
 	$this->get('detalhes-compra/{id}', 'Site\SiteController@purchaseDetail')->name('purchase.detail');
 
+	$this->get('meu-perfil', 'Site\SiteController@myProfile')->name('my.profile');
+
 });
 
-$this->get('/', 'Site\SiteController@index');
+$this->get('/', 'Site\SiteController@index')->name('home');
 
 $this->post('pesquisar', 'Site\SiteController@search')->name('search.flights.site');
 

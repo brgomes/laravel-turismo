@@ -9,7 +9,7 @@
 
     {!! Form::open(['route' => 'search.flights.site', 'class' => 'form-home text-center']) !!}
         <div class="form-group">
-            {!! Form::text('origin', null, ['class' => 'form-control', 'list' => 'origin', 'placeholder' => 'Aeroporto origem']) !!}
+            {!! Form::text('origin', null, ['class' => 'form-control', 'list' => 'origin', 'placeholder' => 'Aeroporto origem', 'required']) !!}
 
             <datalist id="origin">
                 @forelse($airports as $airport)
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::text('destination', null, ['class' => 'form-control', 'list' => 'destination', 'placeholder' => 'Aeroporto destino']) !!}
+            {!! Form::text('destination', null, ['class' => 'form-control', 'list' => 'destination', 'placeholder' => 'Aeroporto destino', 'required']) !!}
 
             <datalist id="destination">
                 @forelse($airports as $airport)
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::date('date', null, ['class' => 'form-control']) !!}
+            {!! Form::date('date', null, ['class' => 'form-control', 'required']) !!}
         </div>
 
         <button class="btn" type="submit">

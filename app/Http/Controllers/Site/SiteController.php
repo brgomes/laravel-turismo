@@ -9,6 +9,7 @@ use App\Models\Flight;
 use App\Models\Reserve;
 use App\Http\Requests\StoreReserveFormRequest;
 use App\User;
+use DB;
 
 class SiteController extends Controller
 {
@@ -77,11 +78,16 @@ class SiteController extends Controller
 
 	public function purchaseDetail($idReserve)
 	{
+		//DB::connection()->enableQueryLog();
+
 		$reserve = Reserve::with('flight')
 						->where('user_id', auth()->user()->id)
 						->where('id', $idReserve)
 						->get()
 						->first();
+
+		//$queries = DB::getQueryLog();
+		//dd($queries);
 
         if (!$reserve) {
             return redirect()->back();
