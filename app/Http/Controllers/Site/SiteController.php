@@ -75,4 +75,21 @@ class SiteController extends Controller
 		return view('site.users.purchases', compact('title', 'purchases'));
 	}
 
+	public function purchaseDetail($idReserve)
+	{
+		$reserve = Reserve::with('flight')
+						->where('user_id', auth()->user()->id)
+						->where('id', $idReserve)
+						->get()
+						->first();
+
+        if (!$reserve) {
+            return redirect()->back();
+        }
+
+        $title = 'Detalhes da reserva ' . $reserve->id;
+
+		return view('site.users.details-purchase', compact('title', 'reserve'));
+	}
+
 }

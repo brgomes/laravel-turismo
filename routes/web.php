@@ -42,6 +42,8 @@ $this->group(['middleware' => 'auth'], function() {
 
 	$this->get('minhas-compras', 'Site\SiteController@myPurchases')->name('my.purchases');
 
+	$this->get('detalhes-compra/{id}', 'Site\SiteController@purchaseDetail')->name('purchase.detail');
+
 });
 
 $this->get('/', 'Site\SiteController@index');

@@ -21,8 +21,8 @@
 	                <tr>
 	                    <td>{{$reserve->id}}</td>
 	                    <td>
-	                        <a href="{{route('details.flight', $reserve->flight->id)}}" class="badge badge-light">
-	                            Ver Detalhes Voô: {{$reserve->flight->id}}
+	                        <a href="{{route('purchase.detail', $reserve->id)}}" class="badge badge-light">
+	                            Ver detalhes da reserva #{{$reserve->id}}
 	                            <i class="fa fa-info-circle" aria-hidden="true"></i>
 	                        </a>
 	                    </td>
