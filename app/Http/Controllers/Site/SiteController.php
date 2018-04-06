@@ -20,11 +20,12 @@ class SiteController extends Controller
 		return view('site.home.index', compact('title', 'airports'));
 	}
 
-	public function promotions()
+	public function promotions(Flight $flight)
 	{
 		$title = 'Promoções';
+		$flights = $flight->promotions();
 
-		return view('site.promotions.list', compact('title'));
+		return view('site.promotions.list', compact('title', 'flights'));
 	}
 
 	public function search(Request $request, Flight $flight)

@@ -48,6 +48,6 @@ $this->get('/', 'Site\SiteController@index');
 
 $this->post('pesquisar', 'Site\SiteController@search')->name('search.flights.site');
 
-$this->get('/promocoes', 'Site\SiteController@promotions')->name('promotions');
+$this->get('promocoes', 'Site\SiteController@promotions')->name('promotions');
 
 Auth::routes();

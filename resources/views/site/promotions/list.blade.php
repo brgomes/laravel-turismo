@@ -7,33 +7,35 @@
         <h1 class="title">Promoções</h1>
 
         <div class="row">
-            @for($i =0; $i < 20; $i++)
-            <article class="result col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="image-promo">
-                    <img src="{{url('assets/site/images/buenos_aires.jpg')}}" alt="">
+            @forelse($flights as $flight)
+                <article class="result col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="image-promo">
+                        <img src="{{url("storage/flights/{$flight->imagem}")}}" alt="{{$flight->id}}">
 
-                    <div class="legend">
-                        <h1>Brasília</h1>
-                        <h2>Saída: Goiânia</h2>
-                        <span>Ida e Volta</span>
-                    </div>
-                </div><!--image-promo-->
-
-                <div class="details">
-                    <p>Data: 12/12/2018</p>
-
-                    <div class="price">
-                        <span>R$ 259,00</span>
-                        <strong>Em até 6x</strong>
+                        <div class="legend">
+                            <h1>{{$flight->origin->city->name}}</h1>
+                            <h2>Saída: {{$flight->destination->city->name}}</h2>
+                            <span>Ida</span>
+                        </div>
                     </div>
 
-                    <a href="" class="btn btn-buy">Comprar</a>
-                </div><!--details-->
+                    <div class="details">
+                        <p>Data: {{FormatDateAndTime($flight->date)}}</p>
 
-            </article><!--result-->
-            @endfor
-        </div><!--Row-->
-    </section><!--Container-->
+                        <div class="price">
+                            <span>R$ {{number_format($flight->price, 2, ',', '.')}}</span>
+                            <strong>Em até {{$flight->total_plots}}x</strong>
+                        </div>
+
+                        <a href="{{route('details.flight', $flight->id)}}" class="btn btn-buy">Visualizar</a>
+                    </div>
+
+                </article>
+            @empty
+                <p>Nenhuma promoção cadastrada.</p>
+            @endforelse
+        </div>
+    </section>
 
 </div>
 
