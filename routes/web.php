@@ -1,6 +1,6 @@
 <?php
 
-$this->group(['prefix' => 'panel', 'namespace' => 'Panel'], function() {
+$this->group(['prefix' => 'panel', 'namespace' => 'Panel', 'middleware' => ['auth', 'admin']], function() {
 
 	$this->any('brands/search', 'BrandController@search')->name('brands.search');
 	$this->any('brands/{id}/planes', 'BrandController@planes')->name('brands.planes');
