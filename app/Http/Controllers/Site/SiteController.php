@@ -98,4 +98,11 @@ class SiteController extends Controller
 		return view('site.users.details-purchase', compact('title', 'reserve'));
 	}
 
+	public function logout()
+    {
+        \Auth::logout();
+
+        return redirect()->route('home');
+    }
+
 }

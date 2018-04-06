@@ -48,6 +48,8 @@ $this->group(['middleware' => 'auth'], function() {
 
 	$this->post('atualizar-perfil', 'Panel\UserController@updateProfile')->name('update.profile');
 
+	$this->get('sair', 'Site\SiteController@logout')->name('logout.user');
+
 });
 
 $this->get('/', 'Site\SiteController@index')->name('home');

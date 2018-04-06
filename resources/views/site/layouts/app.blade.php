@@ -67,7 +67,7 @@
                                 <a class="dropdown-item" href="{{route('my.profile')}}">Meu perfil</a>
                                 <a class="dropdown-item" href="{{route('my.purchases')}}">Minhas compras</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Sair</a>
+                                <a class="dropdown-item" href="{{route('logout.user')}}">Sair</a>
                             </div>
                         </div>
                     </div><!-- main-user-auth -->
