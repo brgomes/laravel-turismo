@@ -10,7 +10,7 @@
         @include('panel.includes.alerts')
 
         <div class="">
-            {!! Form::model(auth()->user(), ['route' => 'update.profile', 'class' => 'form-eti']) !!}
+            {!! Form::model(auth()->user(), ['route' => 'update.profile', 'class' => 'form-eti', 'files' => true]) !!}
         
                 <div class="form-group">
                     <label for="name">Nome *</label>
