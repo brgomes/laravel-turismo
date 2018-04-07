@@ -71,7 +71,12 @@ class SiteController extends Controller
 	public function myPurchases()
 	{
 		$title = 'Minhas compras';
-		$purchases = auth()->user()->reserves()->with('flight')->get();
+		$purchases = auth()->user()
+						->reserves()
+						->with('flight')
+						->join('flights', 'flights.id', '=', 'reserves.flight_id')
+						->orderBy('flights.date', 'DESC')
+						->get();
 
 		return view('site.users.purchases', compact('title', 'purchases'));
 	}

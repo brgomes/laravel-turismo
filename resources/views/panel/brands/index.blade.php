@@ -41,7 +41,7 @@
 	<table class="table table-striped">
 		<tr>
 			<th>Nome</th>
-			<th width="150">Ações</th>
+			<th width="180">Ações</th>
 		</tr>
 
 		@forelse($brands as $brand)
